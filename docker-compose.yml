@@ -1,4 +1,4 @@
-version: '3.8'
+
 networks:
     monitoring: 
         driver: bridge
@@ -27,7 +27,7 @@ services:
         container_name: grafana
         restart: unless-stopped
         volumes:
-            - ./grafana/grafana.yml:etc/grafana/grafana.yml
+            - ./grafana/provisioning:/etc/grafana/provisioning
             - grafana_data:/var/lib/grafana
         ports:
             - "3000:3000"
