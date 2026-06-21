@@ -18,6 +18,7 @@ services:
         volumes:
             - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
             - prometheus_data:/prometheus
+            - ./prometheus/alerts.yml:/etc/prometheus/alerts.yml
         command:
             - '--config.file=/etc/prometheus/prometheus.yml'
             - '--storage.tsdb.path=/prometheus'
@@ -44,3 +45,16 @@ services:
             - "9100:9100"
         networks:
             - monitoring
+
+    alertmanager:
+        image: prom/alertmanager
+        container_name: alertmanager
+        restart: unless-stopped
+        volumes:
+            - ./alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+        command:
+            - '--config.file=/etc/alertmanager/alertmanager.yml'
+        networks:
+            - monitoring
+        ports: 
+            - "9093:9093"

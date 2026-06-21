@@ -2,6 +2,14 @@ global:
   scrape_interval: 15s  # How often Prometheus colllects metrics
   evaluation_interval: 15s #How often it evaluates alert rules
 
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets: ['alertmanager:9093']
+
+rule_files:
+  - '/etc/prometheus/alerts.yml'
+
 scrape_configs:
   - job_name: 'prometheus'
     static_configs:
