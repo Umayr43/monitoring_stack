@@ -11,7 +11,7 @@ route:
 receivers:
   - name: 'slack-notifications'
     slack_configs:
-      - api_url: 'https://webhook.site/a0e00a57-8209-4ba8-82eb-ad3f2bab9330'
+      - api_url: https://webhooksite.net/a0e00a57-8209-4ba8-82eb-ad3f2bab9330 #replace this with your url
         channel: '#alerts'
         send_resolved: true
         title: "{{ .GroupLabels.alertname }}"

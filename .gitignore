@@ -1,0 +1,27 @@
+# Docker
+.env
+*.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Grafana data (local volume data if ever exported)
+grafana/data/
+
+# Prometheus data (local volume data if ever exported)
+prometheus/data/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo

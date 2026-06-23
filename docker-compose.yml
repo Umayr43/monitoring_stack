@@ -58,3 +58,12 @@ services:
             - monitoring
         ports: 
             - "9093:9093"
+
+    app:
+        build: ./app
+        container_name: metrics-app
+        restart: unless-stopped
+        networks:
+            - monitoring
+        ports:
+            - "5000:5000"
